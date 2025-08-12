@@ -40,7 +40,7 @@ export default function Hero({ guest, onViewInvitation }: HeroProps) {
 
   return (
     <motion.main
-      className="fixed inset-0 bg-black flex items-center justify-center z-20"
+      className="fixed inset-0 bg-black flex items-center justify-center z-20 font-inter"
       initial={{ opacity: 0 }}
       animate={isExiting ? { y: "-100%", opacity: 0 } : { opacity: 1, y: 0 }}
       transition={{
@@ -161,13 +161,15 @@ export default function Hero({ guest, onViewInvitation }: HeroProps) {
             }}
             whileHover={!isExiting ? { scale: 1.05 } : {}}
             whileTap={!isExiting ? { scale: 0.95 } : {}}
-            className={`mt-12 px-6 py-3 font-semibold transition-all duration-300 ${
+            className={`relative px-6 md:px-8 py-3 border border-orange-500 text-sm md:text-base lg:text-lg font-medium text-orange-400 hover:text-white overflow-hidden transition-all duration-300 before:content-[''] before:absolute before:inset-0 before:w-0 before:bg-orange-500 before:text-white before:transition-all before:duration-500 before:ease-out hover:before:w-full inline-block items-center gap-2 whitespace-nowrap animate-gentle-pulse ${
               isExiting
-                ? "bg-orange-300 text-gray-700 cursor-not-allowed"
-                : "bg-orange-400 text-black hover:bg-orange-500 cursor-pointer"
+                ? "border border-orange-500 text-orange-400 cursor-not-allowed"
+                : "bborder border-orange-500 text-orange-400 hover:bg-orange-500 cursor-pointer"
             }`}
           >
-            {isExiting ? "Memuat..." : "Buka Undangan"}
+            <span className="relative z-10">
+              {isExiting ? "Memuat..." : "Buka Undangan"}
+            </span>
           </motion.button>
         </div>
       </div>

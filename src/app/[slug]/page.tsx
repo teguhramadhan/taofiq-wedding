@@ -3,9 +3,14 @@
 import { useEffect, useState, useRef } from "react";
 import { collection, query, getDocs } from "firebase/firestore";
 import { db } from "@/lib/firebase";
+
 import Hero from "../components/Hero";
 import RSVP from "../components/RSVP";
 import Greeting from "../components/Greeting";
+import BrideGroom from "../components/BrideGroom";
+import WeddingDetails from "../components/WeddingDetails";
+import LoveStory from "../components/LoveStory";
+import Gallery from "../components/Gallery";
 
 type Guest = {
   fullName: string;
@@ -116,6 +121,10 @@ export default function InvitationPage({
       ) : (
         <div ref={rsvpRef}>
           <Greeting guest={guest} />
+          <BrideGroom guest={guest} />
+          <WeddingDetails guest={guest} />
+          <LoveStory guest={guest} />
+          <Gallery guest={guest} />
           <RSVP guest={guest} />
         </div>
       )}
