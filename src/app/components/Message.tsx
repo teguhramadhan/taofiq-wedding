@@ -56,7 +56,7 @@ export default function RSVPMessageList() {
   return (
     <section className="relative min-h-screen py-20 md:py-28 bg-fixed bg-center bg-cover">
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-black/90"></div>
+      <div className="absolute inset-0 bg-black"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}

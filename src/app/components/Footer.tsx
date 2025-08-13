@@ -1,50 +1,66 @@
-import React from "react";
-import { FiMapPin, FiGift } from "react-icons/fi";
-import { RiQrCodeLine } from "react-icons/ri";
+"use client";
+
+import { BiHeart } from "react-icons/bi";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-black backdrop-blur-xl p-6 sm:p-8 md:p-10 font-inter border-t border-white/10">
-      <div className="max-w-6xl mx-auto text-center space-y-6">
-        {/* Title */}
-        <h3 className="text-orange-400 uppercase tracking-[0.2em] font-light font-cinzel text-sm sm:text-base md:text-lg">
-          Terima Kasih
-        </h3>
+    <motion.footer
+      aria-label="Wedding Footer"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      className="relative py-20 bg-fixed bg-center bg-cover text-center"
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+      }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-70"></div>
 
-        {/* Info Links */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 sm:gap-8 text-gray-300 text-sm sm:text-base">
-          <a
-            href="https://maps.google.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 hover:text-orange-400 transition-colors"
-          >
-            <FiMapPin className="text-orange-400" />
-            <span>Lokasi Acara</span>
-          </a>
+      <div className="relative max-w-3xl mx-auto px-6">
+        <motion.div
+          className="flex justify-center mb-6"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 1 }}
+        >
+          <Image
+            src="/images/ornaments/ornaments-top.png"
+            alt="Wedding Ornament"
+            width={80}
+            height={100}
+            className="object-contain drop-shadow-lg"
+          />
+        </motion.div>
 
-          <a
-            href="#gift"
-            className="flex items-center gap-2 hover:text-orange-400 transition-colors"
-          >
-            <FiGift className="text-orange-400" />
-            <span>Kirim Hadiah</span>
-          </a>
+        <motion.p
+          className="text-gray-300 mb-6 text-sm md:text-lg leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 1 }}
+        >
+          Dengan segala kerendahan hati, kami berterima kasih atas doa-doa
+          Anda.Kehadiran Anda merupakan suatu kehormatan dan kebahagiaan bagi
+          keluarga kami.
+        </motion.p>
 
-          <a
-            href="#qr"
-            className="flex items-center gap-2 hover:text-orange-400 transition-colors"
-          >
-            <RiQrCodeLine className="text-orange-400" />
-            <span>QR Code</span>
-          </a>
-        </div>
-
-        {/* Copyright */}
-        <p className="text-sm text-gray-500 tracking-wide">
-          © {new Date().getFullYear()} Taofiq & Partner. All rights reserved.
-        </p>
+        <motion.div
+          className="flex justify-center items-center gap-2"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 1 }}
+        >
+          <BiHeart className="w-5 h-5 text-orange-400" />
+          <p className="text-2xl text-orange-400 font-cinzelDecorative">
+            Taofiq & Ceweknya
+          </p>
+          <BiHeart className="w-5 h-5 text-orange-400" />
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
