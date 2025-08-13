@@ -14,7 +14,7 @@ type GreetingProps = {
 export default function Greeting({ guest }: GreetingProps) {
   return (
     <motion.section
-      className="flex min-h-screen items-center justify-center bg-black text-white px-6 bg-pattern font-inter"
+      className="flex min-h-screen items-center justify-center bg-black text-white px-6 bg-pattern font-inter pt-12"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
@@ -27,7 +27,7 @@ export default function Greeting({ guest }: GreetingProps) {
       >
         {/* Salam hangat */}
         <motion.h2
-          className="text-xl font-light mb-4"
+          className="lg:text-xl text-white/70 font-light mb-1"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
@@ -36,7 +36,7 @@ export default function Greeting({ guest }: GreetingProps) {
         </motion.h2>
 
         <motion.p
-          className="text-2xl mb-4"
+          className="lg:text-2xl mb-1 mt-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.6 }}
@@ -54,19 +54,18 @@ export default function Greeting({ guest }: GreetingProps) {
         </motion.h1>
 
         <motion.p
-          className="text-sm md:text-md lg:text-lg px-8 text-white/40"
+          className="text-xs md:text-md lg:text-lg px-2 text-white/40"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
         >
-          Kami mengucapkan terima kasih atas kehadiran dan waktu berharga Anda
-          di acara kami. Semoga momen ini membawa kebahagiaan dan kenangan indah
-          bagi Anda.
+          Kami mengucapkan terima kasih atas perhatian dan berharap kehadiran
+          serta waktu berharga Anda di acara kami.
         </motion.p>
 
         {/* Meaning Section */}
         <motion.div
-          className="backdrop-blur-lg bg-white/5 border border-white/20 px-2 py-12 md:px-10 md:py-14 lg:px-12 lg:py-16 animate-fade-in-slower mt-12"
+          className="backdrop-blur-lg bg-white/5 border border-white/20 px-2 py-6 md:px-10 md:py-12 lg:px-12 lg:py-16 animate-fade-in-slower mt-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.8 }}
@@ -88,7 +87,7 @@ export default function Greeting({ guest }: GreetingProps) {
             transition={{ delay: 2.4, duration: 0.6 }}
           >
             <p
-              className="text-2xl md:text-3xl text-white/90 font-arabic leading-relaxed mb-2 md:mb-4"
+              className="text-2xl md:text-3xl text-white/90 font-arabic mb-0 md:mb-4"
               dir="rtl"
             >
               يَتَفَكَّرُون
@@ -96,13 +95,13 @@ export default function Greeting({ guest }: GreetingProps) {
           </motion.div>
 
           <motion.div
-            className="text-center mb-6"
+            className="text-center mb-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.6, duration: 0.6 }}
           >
-            <h4 className="text-lg font-light text-orange-400 mb-2 md:mb-4">
-              Meaning:
+            <h4 className="text-lg font-light text-orange-400 mb-0 md:mb-4">
+              Meaning :
             </h4>
           </motion.div>
 
@@ -120,7 +119,7 @@ export default function Greeting({ guest }: GreetingProps) {
               thinks.&quot;
             </p>
 
-            <footer className="text-orange-300 font-medium font-cinzelDecorative">
+            <footer className="text-orange-400 font-medium font-cinzelDecorative">
               (QS. Ar-Rum: 21)
             </footer>
           </motion.blockquote>

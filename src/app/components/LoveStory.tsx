@@ -4,15 +4,6 @@ import Image from "next/image";
 import { useRef, useEffect } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
-type Guest = {
-  fullName: string;
-  address: string;
-};
-
-type LoveStoryProps = {
-  guest: Guest;
-};
-
 interface StoryStep {
   title: string;
   description: string;
@@ -63,7 +54,7 @@ const storySteps: StoryStep[] = [
   },
 ];
 
-export default function LoveStory({ guest }: LoveStoryProps) {
+export default function LoveStory() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
 
@@ -183,11 +174,11 @@ export default function LoveStory({ guest }: LoveStoryProps) {
                   height={500}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute inset-0 flex flex-col justify-end p-12">
+                <div className="absolute inset-0 flex flex-col justify-end p-8">
                   <h2 className="text-2xl md:text-4xl font-bold text-orange-400 mb-2 font-cinzel uppercase">
                     {step.title}
                   </h2>
-                  <p className="text-sm md:text-lg text-white max-w-xl mt-4 line-clamp-3">
+                  <p className="text-xs md:text-lg text-white/60 max-w-xl mt-1 line-clamp-3">
                     {step.description}
                   </p>
                 </div>

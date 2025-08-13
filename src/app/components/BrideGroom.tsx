@@ -2,15 +2,6 @@ import { BsInstagram } from "react-icons/bs";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-type Guest = {
-  fullName: string;
-  address: string;
-};
-
-type BridenGroomProps = {
-  guest: Guest;
-};
-
 const couple = [
   {
     role: "Groom",
@@ -30,7 +21,7 @@ const couple = [
   },
 ];
 
-export default function BrideGroom({ guest }: BridenGroomProps) {
+export default function BrideGroom() {
   return (
     <>
       <section className="relative min-h-screen bg-black text-white flex items-center justify-center py-20 px-4 overflow-hidden font-inter">
@@ -40,7 +31,7 @@ export default function BrideGroom({ guest }: BridenGroomProps) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ amount: 0.2 }}
-            className="text-4xl lg:text-6xl font-light mb-24 font-cinzelDecorative"
+            className="text-4xl lg:text-6xl font-light mb-12 md:mb-24 font-cinzelDecorative"
           >
             The Bride & Groom
           </motion.h2>

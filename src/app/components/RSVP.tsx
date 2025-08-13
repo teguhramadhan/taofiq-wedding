@@ -36,11 +36,10 @@ export default function RSVP({ guest }: RSVPProps) {
     message: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
-  const [showThankYou, setShowThankYou] = useState(false);
   const [loading, setLoading] = useState(false);
   const [docId, setDocId] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
 
   const options = [
     { value: "yes", label: "Ya" },
@@ -55,15 +54,13 @@ export default function RSVP({ guest }: RSVPProps) {
 
       if (!querySnapshot.empty) {
         const docSnap = querySnapshot.docs[0];
-        const data = docSnap.data();
-
+        const data = docSnap.data() as Omit<RSVPData, never>;
         setDocId(docSnap.id);
         setRsvp({
-          isComing: data.isComing,
+          isComing: data.isComing ?? null,
           totalAttendees: data.totalAttendees || 1,
           message: data.message || "",
         });
-        setSubmitted(true);
       }
     }
 
@@ -79,12 +76,9 @@ export default function RSVP({ guest }: RSVPProps) {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-
     if (name === "totalAttendees") {
       setRsvp((prev) => ({
         ...prev,
@@ -138,7 +132,6 @@ export default function RSVP({ guest }: RSVPProps) {
         });
       }
 
-      setSubmitted(true);
       setShowThankYou(true);
     } catch (error) {
       console.error("Gagal submit RSVP:", error);
@@ -146,10 +139,6 @@ export default function RSVP({ guest }: RSVPProps) {
     } finally {
       setLoading(false);
     }
-  };
-
-  const closeAlert = () => {
-    setShowThankYou(false);
   };
 
   return (
@@ -371,7 +360,7 @@ export default function RSVP({ guest }: RSVPProps) {
                 kehadiran Anda.
               </p>
               <button
-                onClick={closeAlert}
+                onClick={() => setShowThankYou(false)}
                 className="mt-6 underline text-red-400 font-semibold hover:text-gray-200 transition"
               >
                 Tutup

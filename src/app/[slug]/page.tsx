@@ -11,6 +11,9 @@ import BrideGroom from "../components/BrideGroom";
 import WeddingDetails from "../components/WeddingDetails";
 import LoveStory from "../components/LoveStory";
 import Gallery from "../components/Gallery";
+import RSVPMessageList from "../components/Message";
+import GiftSection from "../components/Gift";
+import Footer from "../components/Footer";
 
 type Guest = {
   fullName: string;
@@ -121,11 +124,14 @@ export default function InvitationPage({
       ) : (
         <div ref={rsvpRef}>
           <Greeting guest={guest} />
-          <BrideGroom guest={guest} />
-          <WeddingDetails guest={guest} />
-          <LoveStory guest={guest} />
-          <Gallery guest={guest} />
+          <BrideGroom />
+          <WeddingDetails />
+          <LoveStory />
+          <Gallery />
           <RSVP guest={guest} />
+          <RSVPMessageList />
+          <GiftSection />
+          <Footer />
         </div>
       )}
     </>

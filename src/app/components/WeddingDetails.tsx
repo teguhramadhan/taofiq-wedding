@@ -4,12 +4,6 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import React from "react";
 import { FaLocationDot } from "react-icons/fa6";
-
-type Guest = {
-  fullName: string;
-  address: string;
-};
-
 interface TimeLeft {
   days: number;
   hours: number;
@@ -19,11 +13,7 @@ interface TimeLeft {
 
 const weddingDate = new Date("2025-12-25T14:00:00");
 
-type WeddingDetailsProps = {
-  guest: Guest;
-};
-
-export default function WeddingDetails({ guest }: WeddingDetailsProps) {
+export default function WeddingDetails() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,
     hours: 0,
@@ -102,9 +92,9 @@ export default function WeddingDetails({ guest }: WeddingDetailsProps) {
         <div className="absolute bottom-32 left-24 w-16 h-px bg-gradient-to-l from-transparent via-orange-400/30 to-transparent animate-slide-left"></div>
       </div>
 
-      <div className="w-full max-w-6xl mx-auto relative z-10">
+      <div className="w-full max-w-full mx-auto relative z-10">
         {/* Main Container */}
-        <div className="p-8 md:p-12 shadow-2xl">
+        <div className="p-2 md:p-12 shadow-2xl">
           {/* Header */}
           <div className="text-center mb-12">
             <motion.div
@@ -119,10 +109,10 @@ export default function WeddingDetails({ guest }: WeddingDetailsProps) {
                 <div className="w-12 h-px bg-gradient-to-l from-transparent to-orange-400"></div>
               </div>
             </motion.div>
-            <h2 className="text-3xl md:text-4xl lg:text-6xl font-light text-white mb-6 font-cinzelDecorative animate-fade-in">
+            <h2 className="text-3xl md:text-4xl lg:text-6xl font-light text-white mb-1 font-cinzelDecorative animate-fade-in">
               Save The Date
             </h2>
-            <p className="text-white/80 font-light animate-fade-in-delayed">
+            <p className="text-xs text-white/80 font-light animate-fade-in-delayed">
               Thursday, November 6th, 2025
             </p>
             <motion.h2
@@ -130,7 +120,7 @@ export default function WeddingDetails({ guest }: WeddingDetailsProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ amount: 0.2 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-xl md:text-xl lg:text-4xl font-thin mb-12 tracking-wide uppercase text-orange-400 mt-12"
+              className="text-xl md:text-xl lg:text-4xl font-thin mb-4 tracking-wide uppercase text-orange-400 mt-12"
             >
               The Countdown to Forever
             </motion.h2>
@@ -168,7 +158,7 @@ export default function WeddingDetails({ guest }: WeddingDetailsProps) {
                 </motion.div>
               ))}
             </motion.div>
-            <p className="text-white lg:text-2xl max-w-full lg:max-w-4xl font-light mx-auto mt-12 animate-fade-in-slow">
+            <p className="text-white text-sm lg:text-2xl max-w-full lg:max-w-4xl font-thin mx-auto mt-12 animate-fade-in-slow">
               Plataran Menteng, Jalan HOS. Cokroaminoto, RT.6/RW.4, Gondangdia,
               Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta, Indonesia.
             </p>

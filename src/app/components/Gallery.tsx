@@ -5,15 +5,6 @@ import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
-type Guest = {
-  fullName: string;
-  address: string;
-};
-
-type GalleryProps = {
-  guest: Guest;
-};
-
 interface GalleryImage {
   id: number;
   src: string;
@@ -22,7 +13,7 @@ interface GalleryImage {
   height: number;
 }
 
-export default function Gallery({ guest }: GalleryProps) {
+export default function Gallery() {
   const galleryImages: GalleryImage[] = [
     {
       id: 1,
@@ -96,7 +87,7 @@ export default function Gallery({ guest }: GalleryProps) {
           },
         },
       }}
-      className="relative md:pt-12 lg:pt-24 font-inter z-10 bg-white"
+      className="relative md:pt-12 lg:pt-24 font-inter z-10 bg-black"
     >
       <div className="max-w-full mx-auto">
         <motion.div
