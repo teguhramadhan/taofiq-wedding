@@ -217,3 +217,14 @@ select option:hover {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+@layer utilities {
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 3s linear infinite;
+  }
+}

@@ -103,8 +103,22 @@ export default function InvitationPage({
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center text-gray-600 text-lg">
-        Loading...
+      <div className="min-h-screen flex flex-col items-center justify-center bg-black text-orange-400">
+        {/* Dot Bounce */}
+        <div className="flex items-center justify-center space-x-2 mb-6">
+          <div className="w-2 h-2 bg-orange-400 rounded-full animate-bounce"></div>
+          <div className="w-2 h-2 bg-orange-300 rounded-full animate-bounce [animation-delay:-0.4s]"></div>
+          <div className="w-2 h-2 bg-orange-200 rounded-full animate-bounce [animation-delay:-0.6s]"></div>
+        </div>
+
+        {/* Teks tema */}
+        <div className="flex flex-col justify-center items-center text-sm lg:text-lg font-cinzelDecorative tracking-wider gap-1">
+          <p>Sedang Menyiapkan</p>
+          <p>undangan Spesial untuk Kamu</p>
+          <p className="text-sm text-white/60 italic font-inter">
+            Mohon tunggu sebentar yaa..
+          </p>
+        </div>
       </div>
     );
   }
